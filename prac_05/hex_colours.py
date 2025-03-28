@@ -1,7 +1,7 @@
 """
 Color Code Lookup Program
 Estimate: 15 minutes
-Actual:   12 minutes
+Actual:   12 minutes.
 """
 
 # Constant dictionary of color names and their hexadecimal codes
