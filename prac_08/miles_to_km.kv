@@ -1,0 +1,47 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+
+        TextInput:
+            id: input_miles
+            text: '0'
+            font_size: 24
+            multiline: False
+            background_color: (1, 1, 1, 1)  # White background
+            foreground_color: (0, 0, 0, 1)  # Black text
+            on_text: app.handle_calculate()  # Dynamic update on text change
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.3
+            spacing: 10
+
+            Button:
+                text: 'Up'
+                background_normal: ''  # Required for solid background color
+                background_color: (0.3, 0.3, 0.3, 1)  # Dark grey
+                color: (1, 1, 1, 1)  # White text
+                on_press: app.handle_increment(1)
+
+            Button:
+                text: 'Down'
+                background_normal: ''
+                background_color: (0.3, 0.3, 0.3, 1)
+                color: (1, 1, 1, 1)
+                on_press: app.handle_increment(-1)
+
+    Label:
+        text: app.output_text  # Bound to the StringProperty
+        font_size: 24
+        color: (1, 1, 0, 1)  # Yellow text
+        canvas.before:
+            Color:
+                rgba: (0, 0, 0, 1)  # Black background
+            Rectangle:
+                pos: self.pos
+                size: self.size
